@@ -1,5 +1,5 @@
 run: bench
-	./main < in.txt
+	./main
 
 bench: main.c *.h
 	g++ main.c -std=c++11 -isystem benchmark/include \

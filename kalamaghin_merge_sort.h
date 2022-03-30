@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
 // If the dimension of "subarray" is less than a few thousands of elements, it
 // is better to use insertion sort practice shows that this speeds up the
 // sorting process by 10-20%.
@@ -18,6 +19,7 @@ void insertion(int *arr, int n, int s) {
         *(arr + s + j + 1) = key;
     }
 }
+
 // "In-place" variation: uses much less memory because we in fact do not have
 // subarrays, BUT it is much slower - O(n^2 * log2(n)).
 void in_place_merge(int *arr, int s1, int m, int e) {
@@ -43,12 +45,13 @@ void in_place_merge(int *arr, int s1, int m, int e) {
         }
     }
 }
+
 // Standard Merge Sort: uses a lot of memory, but O(n * log2(n)).
 void standart_merge(int *arr, int l, int m, int r) {
     int i, j, k;
     int n1 = m - l + 1;
     int n2 = r - m;
-    if (r < 2000) {
+    if (r < 100) {
         insertion(arr, r, 0);
     } else {
         int *L = (int *)malloc(n1 * sizeof(int));
@@ -86,6 +89,7 @@ void standart_merge(int *arr, int l, int m, int r) {
         free(R);
     }
 }
+
 // The function a function that provides recursive division of
 // arrays and a function that provides recursive division of arrays
 // and their sorting after small subarrays have been sorted by insertion.
@@ -97,7 +101,9 @@ void mergeSort(int *arr, int l, int r) {
         standart_merge(arr, l, m, r);
     }
 }
+
 void kalamaghin_merge_sort(int *arr, int n) {
     mergeSort(arr, 0, n);
 }
+
 #endif // KALAMAGHIN_MERGE_SORT_H_

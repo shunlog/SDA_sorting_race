@@ -1,0 +1,8 @@
+~/Programs/google-benchmark/tools/compare.py filters results.json Sort/Merge_sort Sort/Merge_ins_sort
+Comparing Sort/Merge_sort to Sort/Merge_ins_sort (from results.json)
+Benchmark                                                          Time             CPU      Time Old      Time New       CPU Old       CPU New
+-----------------------------------------------------------------------------------------------------------------------------------------------
+[92m[Sort/Merge_sort vs. Sort/Merge_ins_sort]/100          [0m[96m         -0.4485[0m[96m         -0.4485[0m          5164          2848[0m          5164          2848
+[92m[Sort/Merge_sort vs. Sort/Merge_ins_sort]/1000         [0m[96m         -0.3900[0m[96m         -0.3900[0m         67009         40878[0m         67008         40878
+[92m[Sort/Merge_sort vs. Sort/Merge_ins_sort]/100000       [0m[96m         -0.2964[0m[96m         -0.2965[0m      10085058       7096053[0m      10084850       7094707
+[92mOVERALL_GEOMEAN                                        [0m[96m         -0.3814[0m[96m         -0.3815[0m             0             0[0m             0             0

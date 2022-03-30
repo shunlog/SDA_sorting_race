@@ -7,7 +7,7 @@
 
 void merge_ins(int *a, int n, int m) {
     int i, j, k;
-    if (n < 100) {
+    if (n < 500) {
         insertion_sort(a, n);
         return;
     }

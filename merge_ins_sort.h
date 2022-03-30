@@ -1,26 +1,14 @@
 #ifndef MERGE_INS_SORT_H_
 #define MERGE_INS_SORT_H_
 
+#include "insertion_sort.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-void insertion2(int *arr, int n, int s) {
-    int i, key, j;
-    for (i = 1; i < n; i++) {
-        key = *(arr + s + i);
-        j = i - 1;
-        while (j >= 0 && *(arr + s + j) > key) {
-            *(arr + s + j + 1) = *(arr + s + j);
-            j = j - 1;
-        }
-        *(arr + s + j + 1) = key;
-    }
-}
 
 void merge_ins(int *a, int n, int m) {
     int i, j, k;
     if (n < 100) {
-        insertion2(a, n, 0);
+        insertion_sort(a, n);
         return;
     }
     int *x = (int *)malloc(n * sizeof(int));

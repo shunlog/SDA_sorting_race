@@ -1,6 +1,5 @@
 #include "benchmark/benchmark.h"
 #include "heap_sort.h"
-#include "insertion_sort.h"
 #include "kalamaghin_merge_sort.h"
 #include "merge_ins_sort.h"
 #include "merge_sort.h"
@@ -19,25 +18,14 @@ template <class... Args> void Sort(benchmark::State &state, Args &&... args) {
     state.SetComplexityN(state.range(0));
 }
 
+int min_size = 100;
 int max_size = 100000;
-/* BENCHMARK_CAPTURE(Sort, Insertion_sort, insertion_sort) */
-/*     ->RangeMultiplier(100) */
-/*     ->Range(10, max_size); */
-BENCHMARK_CAPTURE(Sort, Merge_sort, merge_sort)
-    ->RangeMultiplier(100)
-    ->Range(10, max_size);
-/* ->Complexity(benchmark::oN); */
+BENCHMARK_CAPTURE(Sort, Merge_sort, merge_sort)->Range(min_size, max_size);
 BENCHMARK_CAPTURE(Sort, Merge_ins_sort, merge_ins_sort)
-    ->RangeMultiplier(100)
-    ->Range(10, max_size);
-BENCHMARK_CAPTURE(Sort, Kalamaghin_Merge_sort, kalamaghin_merge_sort)
-    ->RangeMultiplier(100)
-    ->Range(10, max_size);
-BENCHMARK_CAPTURE(Sort, Quick_sort, quick_sort)
-    ->RangeMultiplier(100)
-    ->Range(10, max_size);
-BENCHMARK_CAPTURE(Sort, Heap_sort, heap_sort)
-    ->RangeMultiplier(100)
-    ->Range(10, max_size);
+    ->Range(min_size, max_size);
+/* BENCHMARK_CAPTURE(Sort, Kalamaghin_Merge_sort, kalamaghin_merge_sort) */
+/*     ->Range(min_size, max_size); */
+BENCHMARK_CAPTURE(Sort, Quick_sort, quick_sort)->Range(min_size, max_size);
+BENCHMARK_CAPTURE(Sort, Heap_sort, heap_sort)->Range(min_size, max_size);
 
 BENCHMARK_MAIN();

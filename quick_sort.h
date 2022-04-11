@@ -1,8 +1,6 @@
 #ifndef QUICK_SORT_H_
 #define QUICK_SORT_H_
 
-#include "insertion_sort.h"
-
 void quick_sort(int *A, int len) {
     if (len < 2)
         return;
@@ -27,6 +25,8 @@ void quick_sort(int *A, int len) {
     quick_sort(A, i);
     quick_sort(A + i, len - i);
 }
+
+#include "insertion_sort.h"
 
 void quick_ins_sort(int *A, int len) {
     if (len < 2)
